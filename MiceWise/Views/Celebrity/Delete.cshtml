@@ -1,0 +1,34 @@
+﻿@model MiceWiseData.Roots.Celebrity
+@{
+	ViewBag.Title = "Delete";
+}
+<div class="ajax_ignore">
+	@Html.Link("back", "Back to List", (object)Routes.IndexOfThisFromThis) 
+</div>
+
+<h2>Delete</h2>
+
+<div>
+	@Html.ValidationSummary(true)
+
+	<h3>Are you sure you want to delete this?</h3>
+	<fieldset>
+		<legend>Fields</legend>
+		@Html.DisplayFor(model => model.Name)
+		@Html.DisplayFor(model => model.Place)
+		@Html.DisplayFor(model => model.Portfolio)
+		@Html.DisplayFor(model => model.Email)
+		@Html.DisplayFor(model => model.Mouse)
+		@Html.DisplayFor(model => model.Tablet)
+		@Html.DisplayFor(model => model.Picture)
+		@Html.DisplayFor(model => model.Active)
+		@Html.DisplayFor(model => model.MouseId)
+		@Html.DisplayFor(model => model.TabletId)
+	</fieldset>
+</div>
+@using (Html.BeginForm()) {
+	<div class="actions">
+		@Html.HiddenFor(model => Model.Id)
+		<input type="submit" class="btn primary" value="Delete" />
+	</div>
+}

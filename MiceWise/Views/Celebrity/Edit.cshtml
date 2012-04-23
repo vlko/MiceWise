@@ -1,0 +1,51 @@
+﻿@using System.Dynamic
+@using MiceWiseData.Roots
+@model MiceWiseData.Roots.Celebrity
+@{
+	ViewBag.Title = "Edit";
+
+	Script.RegisterValidationJs(Html);
+}
+<div class="ajax_ignore">
+	@Html.Link("back", "Back to List", (object)Routes.IndexOfThisFromThis) 
+</div>
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+	<div>
+		@Html.ValidationSummary(true)
+		<fieldset>
+			<legend>Fields</legend>
+			@Html.HiddenFor(model => model.Id)
+
+			@Html.EditorFor(model => model.Name)
+			@Html.EditorFor(model => model.Place)
+			@Html.EditorFor(model => model.Portfolio)
+			@Html.EditorFor(model => model.Email)
+			@Html.EditorFor(model => model.Mouse)
+            <div class="clearfix@(!Html.IsValid(model => model.MouseId) ? " error" : string.Empty)">
+		        @Html.LabelFor(model => model.MouseId)
+
+		        <div class="input">
+			        @Html.DropDownListFor(model => model.MouseId, new MultiSelectList((IEnumerable<Device>)ViewBag.Devices, "Id", "Name"), "-- select mouse --", new { @class = "xlarge"})
+			        @Html.ValidationMessageFor(model => model.MouseId, null, new { @class = "ignore" })
+		        </div>
+	        </div>
+			@Html.EditorFor(model => model.Tablet)
+            <div class="clearfix@(!Html.IsValid(model => model.TabletId) ? " error" : string.Empty)">
+		        @Html.LabelFor(model => model.TabletId)
+
+		        <div class="input">
+			        @Html.DropDownListFor(model => model.TabletId, new MultiSelectList((IEnumerable<Device>)ViewBag.Devices, "Id", "Name"), "-- select tablet --", new { @class = "xlarge"})
+			        @Html.ValidationMessageFor(model => model.TabletId, null, new { @class = "ignore" })
+		        </div>
+	        </div>
+			@Html.EditorFor(model => model.Picture)
+			@Html.EditorFor(model => model.Active)
+		</fieldset>
+	</div>
+	<div class="actions">
+		<input type="submit" class="btn primary" value="Save" />
+	</div>
+}

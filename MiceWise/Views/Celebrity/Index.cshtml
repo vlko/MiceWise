@@ -1,0 +1,45 @@
+﻿@using MiceWiseData
+@model vlko.core.Components.PagedModel<MiceWiseData.Roots.Celebrity>
+@{
+	ViewBag.Title = "Index";
+	Html.ScriptInclude("~/Scripts/Grid.js");
+}
+
+<h2>Index</h2>
+
+<div>
+	@Html.Link("create", "Create new", (object)Routes.CreateOfThisFromThis())
+</div>
+
+<table>
+	<thead>
+		<th></th>
+		<th>Name</th>
+		<th>Place</th>
+        <th>Email</th>
+        <th>Active</th>
+	</thead>
+
+@foreach (var item in Model) {
+	<tr>
+		<td class="no_wrap">
+			@Html.Link("edit", "Edit", (object)Routes.EditOfThisFromThis(item.Id.SimpleId()))
+			@Html.Link("delete", "Delete", (object)Routes.DeleteOfThisFromThis(item.Id.SimpleId()))
+		</td>
+		<td>@item.Name</td>
+		<td>@item.Portfolio</td>
+        <td>@item.Email</td>
+        <td>@item.Active</td>
+	</tr>
+}
+</table>
+
+<div>@Pager.Render(Html, Model)</div>
+
+@{ Html.ScriptInlineInclude(
+@<script type="text/javascript">
+	$(function () {
+		$("#content").ajaxGrid();
+	});
+</script>); 
+}
