@@ -75,7 +75,8 @@ function createLoading() {
 			autoOpen: true,
 			modal: true,
 			close: function () { $(".loading_dialog").empty(); },
-			title: 'Loading...'
+			title: 'Loading...',
+            zIndex: 20999
 		});
 }
 
@@ -195,6 +196,23 @@ function fillContentWithData(content, data) {
 	$(":focusable:first", form).click().focus();
 }
 
+function enableValidation(content) {
+    var form = $("form", content);
+    if (form.length
+        && jQuery.validator && jQuery.validator.unobtrusive) {
+            jQuery.validator.unobtrusive.parse(content);
+            var focusable = $(":focusable:not(a):first", form);
+            setTimeout(function () {
+                if ($.inArray(focusable.prop("tagName"), ["input", "INPUT"]) && (focusable.prop("type") != "checkbox")) {
+                    focusable.focus().select();
+                }
+                else {
+                    focusable.focus();
+                }
+            }, 300);
+        }
+}
+
 function updateEffect(content, callback) {
 	content.effect("slide", { direction: "up" }, 300,
 		function() {
@@ -296,3 +314,145 @@ window.innerShiv = (function () {
 		return f;
 	};
 } ());
+
+(function ($) {
+    var originalRemoveMethod = jQuery.buildFragment;
+
+    // Define overriding method.
+    jQuery.buildFragment = function (args, nodes, scripts) {
+        // Execute the original method.
+        var result = originalRemoveMethod.apply(this, arguments);
+        if (scripts) {
+            if (scripts.length) {
+                for (var i = scripts.length - 1; i >= 0; i--) {
+                    if (scripts[i].src) {
+                        var inlineScript = $("<script type='text/javascript'>scriptCache.load('{0}');</script>".format(scripts[i].src));
+                        scripts.splice(i, 1, inlineScript[0]);
+                    }
+                }
+            }
+        }
+        return result;
+    };
+
+    $.fn.ajaxClick = function (settings) {
+
+        if (typeof content === 'undefined') {
+            content = "#content";
+        }
+
+        var config = $.extend({}, $.fn.ajaxClick.defaults, settings);
+
+        return this.each(function () {
+            var $this = $(this);
+
+            $this.click(function () {
+                createLoading();
+                var nextUrl = $(this).attr("href");
+                $.ajax({
+                    type: "POST",
+                    url: nextUrl + (nextUrl.indexOf("?") > 0 ? "&" : "?") + "ajaxTime=" + new Date().getTime(),
+                    success: function (data) {
+                        var content = $(config.content);
+                        content.html(data);
+                        closeLoading();
+                        updateEffect(content);
+                    },
+                    error: ajaxException
+                });
+                return false;
+            });
+        });
+    };
+
+    $.fn.ajaxClick.defaults = {
+        content: '#content'
+    };
+
+    $.fn.ajaxRequest = function (link, callback, settings) {
+
+        var config = $.extend({}, $.fn.ajaxRequest.defaults, settings);
+
+        return this.each(function () {
+            var $this = $(this);
+
+            var nextUrl = link;
+
+            createLoading();
+            $.ajax({
+                type: "POST",
+                dataType: config.data != undefined ? 'json' : undefined,
+                contentType: config.data != undefined ? 'application/json; charset=utf-8' : undefined,
+                data: config.data != undefined ? JSON.stringify(config.data) : undefined,
+                url: nextUrl + (nextUrl.indexOf("?") > 0 ? "&" : "?") + "ajaxTime=" + new Date().getTime(),
+                success: function (data) {
+                    if (!config.noPostProcessing) {
+                        $this.html(data);
+                        closeLoading();
+                        updateEffect($this);
+                        enableValidation($this);
+                    }
+                    else {
+                        closeLoading();
+                    }
+
+                    if (callback)
+                        callback();
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    ajaxException(xhr, ajaxOptions, thrownError);
+                }
+            });
+            return false;
+        });
+    };
+
+    $.fn.ajaxRequest.defaults = {
+    };
+
+    $.fn.ajaxFormPost = function (callback, settings) {
+
+        var config = $.extend({}, $.fn.ajaxFormPost.defaults, settings);
+
+        return this.each(function () {
+            var $this = $(this);
+            var form = $("form", this);
+            if (form.valid()) {
+
+                var nextUrl = form.attr("action");
+
+                var start = new Date().getTime();
+
+                createLoading();
+                $.ajax({
+                    type: "POST",
+                    url: nextUrl,
+                    data: form.serialize(),
+                    success: function (data) {
+                        if (data.actionName) {
+                            var nextActionUrl = data.actionName;
+
+                            closeLoading();
+                            if (!callback || callback()) {
+                                $this.ajaxRequest(nextActionUrl);
+                            }
+                        } else {
+                            fillContentWithData($this, data);
+                            closeLoading();
+                        }
+
+
+
+                    },
+                    error: function (xhr, ajaxOptions, thrownError) {
+                        ajaxException(xhr, ajaxOptions, thrownError);
+                    }
+                });
+            }
+            return false;
+        });
+    };
+
+    $.fn.ajaxFormPost.defaults = {
+    };
+})(jQuery);

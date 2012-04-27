@@ -1,0 +1,87 @@
+﻿@model MiceWiseData.ViewModel.CelebrityRegisterViewModel
+@{
+	ViewBag.Title = "Add";
+
+	Script.RegisterValidationJs(Html);
+	Html.ScriptInclude("~/Scripts/upload/ajaxupload.js");
+}
+<div id="ajax_content">
+    
+
+    @using (Html.BeginForm((object)Routes.AddOfThis(ajax: DateTime.Now), encType: "multipart/form-data"))
+    {
+        <div id="add-form">
+            <h2><strong>Hello!</strong> Give us a few details about you and your famouse Gear.</h2>
+
+            <fieldset>
+                @Html.EditorFor(model => model.Name)
+                @Html.EditorFor(model => model.Place)
+                @Html.EditorFor(model => model.Portfolio)
+                @Html.EditorFor(model => model.Email)
+                @Html.EditorFor(model => model.Mouse)
+                @Html.EditorFor(model => model.Tablet)
+                @Html.HiddenFor(model => model.FileIdent)
+                @Html.HiddenFor(model => model.Picture)
+                <div class="clearfix@(!Html.IsValid(model => model.Picture) ? " error" : string.Empty)">
+                    @Html.LabelFor(model => model.Picture)
+
+                    <div class="input">
+                        <input  type="file" name="File" id="File" class="input-file xlarge"/>
+                        @if (!string.IsNullOrEmpty(Model.Picture))
+                        {
+                            <p class="help-block">uploaded file @Model.Picture</p>
+                        }
+                        @Html.ValidationMessageFor(model => model.Picture, null, new { @class = "ignore" })
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+        <div class="actions">
+            <input type="submit" class="btn primary" value="SEND" id="add_submit"/>
+        </div>
+    }
+</div>
+@{ Html.ScriptInlineInclude(
+@<script type="text/javascript">
+    $(function () {
+        $("#add_submit").click(function (event) {
+            $("#ajax_content").ajaxFormPost(function() {
+                $("#qtip-overlay").click();
+            });
+            event.preventDefault();
+        });
+        
+        var fileInput = $("#File");
+        var form = $("#ajax_content form");
+        
+        var upload = new AjaxUpload(fileInput, {
+            action: form.attr("action"),
+            name: 'File',
+            onSubmit: function () {
+                createLoading();
+                this.disable();
+                var data = {};
+                $.each(form.serializeArray(), function (_, kv) {
+                    data[kv.name] = kv.value;
+                });
+                data["X_REQUESTED_WITH"] = "XMLHttpRequest";
+                this.setData(data);
+            },
+            onComplete: function (file, responseDoc) {
+                var content = $("#ajax_content");
+                var contentForm = $("#ajax_content form", responseDoc);
+                var html = '<form action="' + contentForm.attr("action") + '" class="ajax_container" enctype="multipart/form-data" id="form0" method="post">' + contentForm.html() + "</form>";
+                content.html(html);
+                $("script", responseDoc).each(function () {
+                    if (this.innerHTML) {
+                        eval($(this).html());
+                    }
+                });
+                closeLoading();
+                updateEffect(content);
+            }
+        });
+
+	});
+</script>); 
+}

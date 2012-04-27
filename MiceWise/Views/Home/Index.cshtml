@@ -1,5 +1,65 @@
-﻿@{
-	ViewBag.Title = "Home Page";
+﻿@model vlko.core.Components.PagedModel<MiceWiseData.ViewModel.CelebrityView>
+@{
+	ViewBag.Title = "Hand picked designers and their Gear";
+    Html.ScriptInclude("~/Scripts/qtip/jquery.qtip.js");
+    Html.CssInclude("~/Scripts/qtip/jquery.qtip.css");
 }
-<h2>@ViewBag.Title</h2>
-@ViewBag.Message
+@section Commands
+{
+    <span class="search">
+        <input type="text" name="search" class="box"/><input type="submit" value="search" class="submit"/>
+    </span>
+    <a href="@Routes.AddOfThis()" class="add" id="add_button"><span>ADD</span></a>
+}
+<section id="designers">
+@foreach (var item in Model) {
+    <article>
+        <img src="/Users/@item.Picture" title="@item.Name" width="200" height="192"/>
+        <section class="info">
+        <header><h1>@item.Name</h1><h2>@item.Place</h2><a href="@item.Portfolio">@item.Portfolio</a></header>
+        <a class="mouse" href="@item.MouseUrl"><span class="brand">@item.MouseBrand</span><span class="type">@item.Mouse</span></a>
+        <a class="tablet" href="@item.TabletUrl"><span class="brand">@item.TabletBrand</span><span class="type">@item.Tablet</span></a>
+        </section>
+    </article>
+}
+<div class="clearfix"></div>
+</section>
+@{ Html.ScriptInlineInclude(
+@<script type="text/javascript">
+    $(function () {
+         $('#add_button').click(function(event) {
+             $(this).qtip(
+                 {
+                     id: 'modal',
+                     content: {
+                         text: "loading",
+                         ajax: {
+                             url: "@Routes.AddOfThis( ajax: DateTime.Now)"
+                         }
+                     },
+                     position: {
+                         my: 'center', 
+                         at: 'center',
+                         target: $(window)
+                     },
+                     show: {
+                         ready: true,
+                         solo: true, 
+                         modal: true
+                     },
+                     hide: false,
+                     events: {
+                         hide: function(event, api) {
+                             $("#add_button").qtip("destroy");
+                         }
+                     },
+                     style: {
+                         width: 530,
+                         classes: 'ui-tooltip-light ui-tooltip-rounded'
+                     }
+                 });
+             event.preventDefault();
+         });
+     });
+</script>); 
+}

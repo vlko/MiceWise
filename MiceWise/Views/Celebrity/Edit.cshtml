@@ -33,7 +33,7 @@
 		        </div>
 	        </div>
 			@Html.EditorFor(model => model.Tablet)
-            <div class="clearfix@(!Html.IsValid(model => model.TabletId) ? " error" : string.Empty)">
+                <div class="clearfix@(!Html.IsValid(model => model.TabletId) ? " error" : string.Empty)">
 		        @Html.LabelFor(model => model.TabletId)
 
 		        <div class="input">
@@ -42,7 +42,16 @@
 		        </div>
 	        </div>
 			@Html.EditorFor(model => model.Picture)
+            @if (!string.IsNullOrEmpty(Model.Picture))
+            {
+                <div class="clearfix">
+                    <div class="input">
+                        <a href="/Users/@Model.Picture" target="_blank">@(Model.Picture)</a>
+                    </div>
+	        </div>
+            }
 			@Html.EditorFor(model => model.Active)
+            @Html.EditorFor(model => model.Priority)
 		</fieldset>
 	</div>
 	<div class="actions">

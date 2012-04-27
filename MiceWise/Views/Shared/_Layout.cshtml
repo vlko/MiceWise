@@ -2,12 +2,19 @@
 <html>
 <head>
 	<title>MiceWize - @ViewBag.Title</title>
-	<meta name="description" content="MiceWize">
+    <meta name="description" content="MiceWize">
+    <meta name="viewport" content="width=device-width" />
 	<!--[if lt IE 9]>
-	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-	<![endif]-->
+	<script src="/Scripts/html5.js"></script>
+    <![endif]-->
+    <link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="/Content/Site.css" media="screen, handheld" />
+    <link rel="stylesheet" type="text/css" href="/Content/Enhanced.css" media="screen  and (min-width: 840px)" />
+    <!--[if (lt IE 9)&(!IEMobile)]>
+    <link rel="stylesheet" type="text/css" href="/Content/Enhanced.css" />
+    <![endif]-->
 	@{ 
-		Html.CssInclude("~/Content/Site.css");
 		Html.CssInclude("~/Content/jquery-ui.custom.css");
 		
 		Html.ScriptRootDebugInclude("http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.6.4.min.js", "http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.6.4.js", 
@@ -23,38 +30,42 @@
 </head>
 
 <body>
-	<div class="page">
-		<div id="header">
-			
-			<div id="title">
-				<h1><span class="name">MiceWize</span> - one coder of many</h1>
-			</div>
-			<div id="search">
-			</div>
-			<div id="menucontainer">
+    <div class="page">
+        @if (Request.IsAuthenticated)
+        {
+            <div id="menucontainer">
 			
                 <ul id="menu">
-                    <li>@Html.Link("Home", (object)Routes.IndexOfHome())</li>
-                    @if (Request.IsAuthenticated) {
-                        <li>@Html.Link("Devices", (object)Routes.IndexOfDevice())</li>
-                        <li>@Html.Link("Celebrities", (object)Routes.IndexOfCelebrity())</li>
-					}
-                </ul>
+                    <li>@Html.Link("Home", (object) Routes.IndexOfHome())</li>
                     
+                    <li>@Html.Link("Devices", (object) Routes.IndexOfDevice())</li>
+                    <li>@Html.Link("Celebrities", (object) Routes.IndexOfCelebrity())</li>
+                </ul>
+            </div>
+        }           
+        <header id="top-header">
+            <h1>WICE<span>&nbsp;&nbsp;</span>MICE</h1>
 
-			</div>
-		</div>
-		<div id="main">
-			<div id="content">
-			@RenderBody()
-			</div>
-			<div id="footer" class="cleaner">
-				<div id="logindisplay">
-					@Html.Partial("LogOnUserControl")
-				</div>
-			</div>
-		</div>
-	</div>
+            <div id="commands">
+                @RenderSection("Commands", false)
+            </div>
+            <h2><span><strong>Hand picked</strong> Designers and their Gear</span></h2>
+        </header>
+        <div id="main">
+            <div id="content">
+                @RenderBody()
+            </div>
+            <div id="footer" class="cleaner">
+                <div id="logindisplay">
+                    @Html.Partial("LogOnUserControl")
+                </div>
+            </div>
+        </div>
+        <footer>
+            <div class="authors"><a href="http://www.twitter.com/jakubptacin">@@JAKUBPTACIN</a><span>&nbsp;&nbsp;</span><a href="http://www.twitter.com/vlkodotnet">@@VLKODOTNET</a></div>
+            <div class="more">Made for fun</div>
+        </footer>
+    </div>
 		@Html.RenderScripts()
 		@Html.RenderInlineScripts()
 <script>

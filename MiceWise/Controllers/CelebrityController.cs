@@ -20,7 +20,7 @@ namespace MiceWise.Controllers
         /// </summary>
         public ActionResult Index(PagedModel<Celebrity> pageModel)
         {
-            pageModel.LoadData(RepositoryFactory.Command<ICelebrityCommands>().GetAll());
+            pageModel.LoadData(RepositoryFactory.Command<ICelebrityCommands>().GetAll().OrderByDescending(item => item.Name));
             return ViewWithAjax(pageModel);
         }
 

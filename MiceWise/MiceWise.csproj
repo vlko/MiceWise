@@ -166,20 +166,33 @@
     <Compile Include="ViewModel\Account\ResetPasswordModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Enhanced.css">
+      <DependentUpon>Enhanced.scss</DependentUpon>
+    </Content>
+    <Content Include="Content\Enhanced.min.css">
+      <DependentUpon>Enhanced.scss</DependentUpon>
+    </Content>
     <Content Include="Content\images\action.png" />
+    <Content Include="Content\images\add.png" />
     <Content Include="Content\images\author.gif" />
     <Content Include="Content\images\change.png" />
     <Content Include="Content\images\comment.gif" />
     <Content Include="Content\images\comment.png" />
     <Content Include="Content\images\comments.png" />
+    <Content Include="Content\images\device-delim.png" />
+    <Content Include="Content\images\header-split.png" />
+    <Content Include="Content\images\loading.gif" />
+    <Content Include="Content\images\mouse.png" />
     <Content Include="Content\images\note-main.gif" />
     <Content Include="Content\images\note.png" />
     <Content Include="Content\images\publish.gif" />
     <Content Include="Content\images\reply.gif" />
     <Content Include="Content\images\rss.png" />
+    <Content Include="Content\images\search.png" />
     <Content Include="Content\images\sort-az.gif" />
     <Content Include="Content\images\sort-tree.gif" />
     <Content Include="Content\images\sort-za.gif" />
+    <Content Include="Content\images\tablet.png" />
     <Content Include="Content\images\timeline.gif" />
     <Content Include="Content\images\twitter.png" />
     <Content Include="Content\images\ui-bg_flat_0_aaaaaa_40x100.png" />
@@ -194,6 +207,12 @@
     <Content Include="Content\images\vlko-logo.gif" />
     <Content Include="Content\images\vlko-logo.png" />
     <Content Include="Content\jquery-ui.custom.css" />
+    <Content Include="Content\Site.css">
+      <DependentUpon>Site.scss</DependentUpon>
+    </Content>
+    <Content Include="Content\Site.min.css">
+      <DependentUpon>Site.scss</DependentUpon>
+    </Content>
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
@@ -253,6 +272,7 @@
     <Content Include="Global.asax" />
     <Content Include="Scripts\Common.js" />
     <Content Include="Scripts\Grid.js" />
+    <Content Include="Scripts\html5.js" />
     <Content Include="Scripts\jquery-1.6.4-vsdoc.js" />
     <Content Include="Scripts\jquery-1.6.4.js" />
     <Content Include="Scripts\jquery-1.6.4.min.js" />
@@ -265,6 +285,8 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.custom.js" />
     <Content Include="Scripts\Pager.js" />
+    <Content Include="Scripts\qtip\jquery.qtip.css" />
+    <Content Include="Scripts\qtip\jquery.qtip.js" />
     <Content Include="Scripts\Upload\ajaxupload.js" />
     <Content Include="Views\Shared\DisplayTemplates\Boolean.ascx" />
     <Content Include="Views\Shared\DisplayTemplates\Collection.ascx" />
@@ -415,56 +437,86 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>ListPaged.cshtml</LastGenOutput>
     </None>
+    <None Include="Content\Enhanced.scss" />
     <None Include="Content\Site.scss">
-      <Generator>ScssGenerator</Generator>
       <LastGenOutput>Site.css</LastGenOutput>
     </None>
-    <None Include="Content\Site.css">
-      <DependentUpon>Site.scss</DependentUpon>
-    </None>
     <None Include="Content\_colors_mixins.scss">
-      <Generator>ScssGenerator</Generator>
       <LastGenOutput>_colors_mixins.css</LastGenOutput>
+      <Compile>False</Compile>
+      <Minify>False</Minify>
+      <CompileStyle>Nested</CompileStyle>
+      <DebugInfo>False</DebugInfo>
     </None>
     <None Include="Content\_forms.scss">
-      <Generator>ScssGenerator</Generator>
       <LastGenOutput>_forms.css</LastGenOutput>
+      <Compile>False</Compile>
+      <Minify>False</Minify>
+      <CompileStyle>Nested</CompileStyle>
+      <DebugInfo>False</DebugInfo>
     </None>
     <None Include="Content\_pattern_buttons.scss">
-      <Generator>ScssGenerator</Generator>
       <LastGenOutput>_pattern_buttons.css</LastGenOutput>
+      <Compile>False</Compile>
+      <Minify>False</Minify>
+      <CompileStyle>Nested</CompileStyle>
+      <DebugInfo>False</DebugInfo>
     </None>
     <None Include="Content\_pattern_overlays.scss">
-      <Generator>ScssGenerator</Generator>
       <LastGenOutput>_pattern_overlays.css</LastGenOutput>
+      <Compile>False</Compile>
+      <Minify>False</Minify>
+      <CompileStyle>Nested</CompileStyle>
+      <DebugInfo>False</DebugInfo>
     </None>
     <None Include="Content\_pattern_pagging.scss">
-      <Generator>ScssGenerator</Generator>
       <LastGenOutput>_pattern_pagging.css</LastGenOutput>
+      <Compile>False</Compile>
+      <Minify>False</Minify>
+      <CompileStyle>Nested</CompileStyle>
+      <DebugInfo>False</DebugInfo>
     </None>
     <None Include="Content\_pattern_tabs_pills.scss">
-      <Generator>ScssGenerator</Generator>
       <LastGenOutput>_pattern_tabs_pills.css</LastGenOutput>
+      <Compile>False</Compile>
+      <Minify>False</Minify>
+      <CompileStyle>Nested</CompileStyle>
+      <DebugInfo>False</DebugInfo>
     </None>
     <None Include="Content\_pattern_topbar.scss">
-      <Generator>ScssGenerator</Generator>
       <LastGenOutput>_pattern_topbar.css</LastGenOutput>
+      <Compile>False</Compile>
+      <Minify>False</Minify>
+      <CompileStyle>Nested</CompileStyle>
+      <DebugInfo>False</DebugInfo>
     </None>
     <None Include="Content\_reset.scss">
-      <Generator>ScssGenerator</Generator>
       <LastGenOutput>_reset.css</LastGenOutput>
+      <Compile>False</Compile>
+      <Minify>False</Minify>
+      <CompileStyle>Nested</CompileStyle>
+      <DebugInfo>False</DebugInfo>
     </None>
     <None Include="Content\_scaffolding.scss">
-      <Generator>ScssGenerator</Generator>
       <LastGenOutput>_scaffolding.css</LastGenOutput>
+      <Compile>False</Compile>
+      <Minify>False</Minify>
+      <CompileStyle>Nested</CompileStyle>
+      <DebugInfo>False</DebugInfo>
     </None>
     <None Include="Content\_tables.scss">
-      <Generator>ScssGenerator</Generator>
       <LastGenOutput>_tables.css</LastGenOutput>
+      <Compile>False</Compile>
+      <Minify>False</Minify>
+      <CompileStyle>Nested</CompileStyle>
+      <DebugInfo>False</DebugInfo>
     </None>
     <None Include="Content\_type.scss">
-      <Generator>ScssGenerator</Generator>
       <LastGenOutput>_type.css</LastGenOutput>
+      <Compile>False</Compile>
+      <Minify>False</Minify>
+      <CompileStyle>Nested</CompileStyle>
+      <DebugInfo>False</DebugInfo>
     </None>
     <Content Include="packages.config" />
     <Content Include="Views\Device\Index.cshtml" />
@@ -475,6 +527,8 @@
     <Content Include="Views\Celebrity\Create.cshtml" />
     <Content Include="Views\Celebrity\Edit.cshtml" />
     <Content Include="Views\Celebrity\Delete.cshtml" />
+    <Content Include="Views\Home\Add.cshtml" />
+    <None Include="Properties\PublishProfiles\Profile.pubxml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

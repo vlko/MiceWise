@@ -7,7 +7,7 @@
 // FORM STYLES
 // -----------
 
-$formLabelWidth: 130px;
+$formLabelWidth: 150px;
 $formInputWidth: 210px;
 $formLabelPadding: 20px;
 $formInputLeftShift: $formLabelWidth + $formLabelPadding;
@@ -38,14 +38,15 @@ fieldset {
 
 // Set font for forms
 label, input, select, textarea {
-  @include sans-serif-font(normal,13px,normal);
+  @include metro-font(normal,13px,normal);
 }
 
 // Float labels left
 label {
   padding-top: 6px;
-  font-size: $basefont;
+  font-size: 14px;
   line-height: $baseline;
+  font-weight: 700;
   float: left;
   width: $formLabelWidth;
   text-align: right;
@@ -69,13 +70,14 @@ input, textarea, select, .uneditable-input {
   height: $baseline;
   padding: 4px;
   font-size: $basefont;
-  line-height: $baseline; 
+  line-height: $baseline;
+  background-color: #fbf7f6;
   @if $metroUI != true {
     color: $gray;
 	border: 1px solid #ccc;
   } @else {
 	color: #454545;
-	border: 2px solid #454545;
+	border: 1px solid #fbf7f6;
   }
   @include border-radius(3px);
 }
@@ -151,6 +153,9 @@ form div.error {
   > label, span.help-inline, span.help-block {
     color: $red;
   }
+  span.field-validation-error {
+    display: block;
+  }
   input, textarea {
     border-color: $error-text;
     @include box-shadow(0 0 3px rgba(171,41,32,.25));
@@ -200,7 +205,7 @@ input[readonly]:focus, textarea[readonly]:focus, input.disabled {
 
 // Actions (the buttons)
 .actions {
-  background-color: #f5f5f5;
+  background-color: black;
   margin-top: $baseline;
   margin-bottom: $baseline;
   padding: $baseline/2 $formLabelPadding $baseline/2 $formInputLeftShift;

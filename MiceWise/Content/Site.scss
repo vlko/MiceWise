@@ -76,83 +76,246 @@ $purple: #7a43b6;
 /* PRIMARY LAYOUT ELEMENTS   
 ----------------------------------------------------------*/
 
+body {
+    min-width: 530px;
+}
+
 .page {
-	width: $pageHeight;
 	margin-left: auto;
 	margin-right: auto;
 }
+#designers {
+    width: 400px;
+
+	margin: auto;
+	margin-right: auto;
+
+    article {
+        background-color: #ffff73;
+        margin-bottom: 20px;
+        height: 200px;
+        width: 400px;
+        position:relative;
+        *  {
+            color:black; 
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        img {
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            float: left;
+        }
+        .info {
+            position: absolute;
+            overflow: hidden;
+            left: 200px;
+            top: 0px;
+            width: 200px;
+            height: 200px;
+            header {
+                left: 200px;
+                top: 0px;
+                height: 78px;
+                padding-top: 20px;
+                h1 {
+                    margin: 0px 20px 0 20px;
+                    height: 19px;
+                     @include metro-font(700,14px,19px);
+                }
+                h2 {
+                    margin: 0 20px 0 20px;
+                    height: 19px;
+                    @include serif-font(normal,14px,19px);
+                    font-style:italic;
+                }
+                a {
+                    margin: 0 20px 0 20px;
+                    height: 19px;
+                    line-height: 19px;
+                    @include serif-font(normal,14px,19px);
+                    font-style:italic;
+                    display: block;
+                    text-decoration: underline;                    
+                }
+            }
+            .mouse {
+                background: transparent url("/Content/images/mouse.png") no-repeat left top;
+                margin-bottom: 1px;
+            }
+            .tablet {
+                background: transparent url("/Content/images/tablet.png") no-repeat left top;
+            }
+            .mouse, .tablet {
+                height: 51px;
+                display: block;
+                padding-left: 68px;
+                &:hover {
+                    background-color: #c5de20;
+                    text-decoration: none;
+                }
+                span {
+                    display: block;
+                    font-size: 14px;
+                    height: 15px;
+                    line-height: 15px;
+                }
+                .brand {
+                    padding-top: 10px;
+                    font-weight: 700;
+                }
+            }
+        }
+    }
+}
 
 #header {
-	position: relative;
-	margin: 0;
-	margin-top: 5px;
-	padding: 0;
-	height: 128px;
+        background-color: white;
+	    margin: 0;
+	    padding: 0;
+	    height: 124px;
+}
+#ajax_content{
+    .actions {
+        padding-left: 190px;
+    }
+}
+#add-form {
+    padding: 20px 20px 0 20px;
+    h2 {
+        text-align: center;
+        @include serif-font(normal,18px,normal);
+        font-style:italic;
+    }
 }
 
-#header h1 {
-	padding: 5px 0 0 10px;
-	margin: 0;
-	border: none;
-	font-size: 40px;
-	font-weight: normal;
-	color: black;
-	text-transform: uppercase;
+#top-header {
+    margin-bottom: 20px;
+    h1 {
+        text-align: center;
+	    margin: 45px 0 0 0;
+        line-height: 42px;
+	    font-size: 14px;
+	    font-weight: 700;
+        letter-spacing: 10px;
+	    color: black;
+	    text-transform: uppercase;
+        span {
+            background: transparent url("/Content/images/header-split.png") no-repeat left center;
+            display: inline-block;
+            height: 42px;
+        }
+    }
+    h2 {
+        color: white;
+        background-color: black;
+        text-align: center;
+        clear: both;
+        @include serif-font(normal,16px,normal);
+        font-style:italic;
+        height: 130px;
+        line-height: 130px;
+        span:before{
+            content: "";
+            display: inline-block;
+            background: transparent url("/Content/images/header-left.png") no-repeat left center;
+            width: 70px;
+            height: 23px;
+            margin-bottom: -9px;
+        }
+        span:after{
+            content: "";
+            display: inline-block;
+            background: transparent url("/Content/images/header-right.png") no-repeat right center;
+            width: 70px;
+            height: 23px;
+            margin-bottom: -9px;
+        }
+    }
 }
-#title .name {
-	font-size: 55px;
-	font-weight: bold;
-	text-transform: none;
+#commands {
+    line-height: 50px;
+    text-align: right;
+    .add {
+        color: black;
+        float: right;
+        width: 130px;
+        height: 50px;
+        line-height: 50px;
+        font-weight: 700;
+        letter-spacing: 10px;
+        background: #fbf7f6 url("/Content/images/add.png") no-repeat 100px center;
+        margin-right: 5px;
+        &:hover, *:hover {
+            color: white;
+            background-color: #c5de20;
+            text-decoration: none;
+        }
+        span {
+            margin-right: 50px;
+        }
+    }
+    .search {
+        float: right;
+        width:200px;
+        height:50px;
+        background-color: #fbf7f6;
+        padding:0px;
+        margin:0px;
+        position:relative;
+        &:hover, *:hover {
+            background-color: #c5de20;
+        }
+        .box {
+            border: 0;
+            margin: 0;
+            padding: 0;
+            background-color:transparent; 
+            box-shadow: none;
+            width:130px;
+            height:30px;
+            line-height: 30px;
+        }
+        .submit {
+            border: 0;
+            margin: 0;
+            padding: 0;
+            background: transparent url("/Content/images/search.png") no-repeat center center;
+            box-shadow: none;
+            width:50px;
+            height:30px;
+            text-indent: 5000px;
+        }
+    }
 }
 
-#logo {
-	margin-left: 15px;
-}
-
-#main {
-	padding: 30px 30px 15px 30px;
-	margin-bottom: 30px;
-	line-height: 1.25em;
-	_height: 1px; /* only IE6 applies CSS properties starting with an underscore */
-}
-
-#footer {
-	padding: 10px 0;
-	text-align: center;
-	line-height: normal;
-	margin: 0;
-	font-size: .9em;
-}
-#search {
-	float:right;
-	padding: 18px 10px 0px 0px;
-	.input-append {
-		input {
-			margin-right: 5px;
-		}
-	}
-	.add-on {
-		text-align: center;
-		color: #454545;
-		border-color: #454545;
-		border-left-width: 2px;
-		background-color: transparent;
-		&:hover {
-			input {
-				color: white;
-				background-color: transparent;
-			}
-			background-color: #656565;
-		}
-		input {
-			padding-left: 0px;
-			padding-right: 0px;
-			line-height: 12px;
-			*line-height: 10px;
-			border: 0;
-			@include box-shadow(none);
-		}
-	}
+footer {
+    text-align: center;
+    color: white;
+    background-color: black;
+    padding-top: 40px;
+    .authors {
+        a {
+            color: #3f3f3f;
+        }
+        font-size: 14px;
+	    font-weight: 700;
+        letter-spacing: 10px;
+        height: 42px;
+        line-height: 42px;
+        span {
+            background: transparent url("/Content/images/header-split.png") no-repeat left center;
+            display: inline-block;
+            height: 42px;
+        }
+    }
+    .more {
+        @include serif-font(normal,13px,normal);
+        font-style:italic;
+        height: 130px;
+        line-height: 130px;
+    }
 }
 
 #logindisplay {
@@ -181,7 +344,7 @@ $purple: #7a43b6;
 ----------------------------------------------------------*/
 #menucontainer {
 	position: absolute;
-	bottom: 3px;
+	top: 3px;
 	left: 10px;
 }
 
@@ -233,155 +396,4 @@ $purple: #7a43b6;
 	display:block;
 	float:left;
 	text-align:left;
-}
-/* Blog module specific styles
-----------------------------------------------------------*/
-#timeline, .note-main {
-	padding-left: 70px;
-	line-height: 30px;
-	height: 60px;
-	margin-bottom: 1em;
-}
-#timeline {
-	background: transparent url("/Content/images/timeline.gif") no-repeat left top;
-}
-.note-main{
-	background: transparent url("/Content/images/note-main.gif") no-repeat left top;
-}
-.twitter_status, .rss_item, .note, .one-note, .comment {
-	width: 200px;
-	height: 200px;
-	float:left;
-	color: white;
-	position: relative;
-	
-	margin: 0 15px 15px 0;
-	background-color: $baseColor;
-	overflow: hidden;
-	a {
-		cursor: pointer;
-		color:white;
-		text-decoration: underline;
-		&:hover {
-			color: $baseColor;
-		}
-		* {
-			color: white;
-			cursor: pointer;
-		}
-		
-	}
-	&>a, &>.title {
-		padding: 5px;
-		display: block;
-		text-decoration: none;
-		color: white;
-		&:hover {
-			color:white;
-			text-decoration: none;
-		}
-		.text {
-			overflow: hidden;
-		}
-		&.fill {
-			height: 100%;
-		}
-	}
-	&:hover {
-		background-color: $metroButtonColor;
-		.date {
-			background-color: $metroButtonColor;
-		}
-	}
-	.icon-link {
-		position: absolute;
-		left: 3px;
-		top: 3px;
-	}
-	h3 {
-		line-height: normal;
-	}
-	.title {
-		margin-top:20px;
-		margin-bottom: 3px;
-	}
-	.text, .content-text {
-		line-height: normal;
-		overflow-x: auto;
-	}
-	.date, .author, .comments {
-		right: 3px;
-		position: absolute;
-		padding: 0px 25px 0px 5px;
-		line-height: 20px;
-		font-size: 12px;
-	}
-	.date {
-		top: 3px;
-	}
-	.author, .comments {
-		bottom: 3px;
-	}
-}
-#page_view_content {
-	.page_comment {
-		min-height: 30px;
-		padding: 2px 2px 2px 2px;
-		margin-bottom: 2em;
-		background-color: transparent;
-		color: black;
-		.icon-link {
-			float: left;
-		}
-		.title {
-			color: gray;
-		}
-		.title, .text {
-			padding-left: 40px;
-		}
-		&:hover {
-			background-color: #eaeaea;
-		}
-	}
-	.title, .text {
-		margin-right: 200px;
-	}
-	.comments, .author, .publish-date, .date {
-		clear:right;
-		float:right;
-		padding: 0px 25px 0px 5px;
-		line-height: 20px;
-		color: white;
-	}
-}
-.note .comments, .comments {
-	background: $baseColor url("/Content/images/comments.png") no-repeat right top;
-}
-.author {
-	background: $baseColor url("/Content/images/author.gif") no-repeat right top;
-}
-.publish-date {
-	background: $baseColor url("/Content/images/publish.gif") no-repeat right top;
-}
-.date {
-	background: $baseColor url("/Content/images/change.png") no-repeat right top;
-}
-.comment-sort {
-	img {
-		border: 1px solid White;
-		&:hover {
-			border: 1px solid #309b46; 
-		}
-	}
-}
-.one-note {
-	position: relative;
-	padding: 2px 0px;
-	min-height: 30px;
-}
-.one-note .info, .comment-sort {
-	float: right;
-	*width: 250px;
-	text-align:right;
-	padding: 3px 0px;
 }

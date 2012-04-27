@@ -1,0 +1,4 @@
+body{min-width:840px}
+#commands{margin-top:-42px;margin-bottom:100px}
+#designers{width:840px;overflow-x:hidden}
+#designers article{float:left;margin-right:10px;margin-left:10px}

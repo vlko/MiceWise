@@ -12,4 +12,5 @@ namespace MiceWiseData.Indexes
 			               select new {item.Id, item.Name, item.Brand};
 		}
 	}
+
 }

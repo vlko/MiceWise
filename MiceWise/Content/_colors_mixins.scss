@@ -163,13 +163,13 @@ width: $width;
   line-height: $lineHeight;
 }
 @mixin metro-font($weight: normal, $size: 14px, $lineHeight: 20px) {
-  font-family: "Segoe UI", Candara, "Bitstream Vera Sans", "DejaVu Sans", "Bitstream Vera Sans", "Trebuchet MS", Verdana, "Verdana Ref", sans serif;
+  font-family: 'Droid Sans', sans-serif;
   font-size: $size;
   font-weight: $weight;
   line-height: $lineHeight;
 }
 @mixin serif-font($weight: normal, $size: 14px, $lineHeight: 20px) {
-  font-family: "Georgia", Times New Roman, Times, serif;
+  font-family: "Droid Serif", "Georgia", Times New Roman, Times, serif;
   font-size: $size;
   font-weight: $weight;
   line-height: $lineHeight;
