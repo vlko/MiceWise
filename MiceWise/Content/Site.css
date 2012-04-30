@@ -1481,8 +1481,9 @@ body {
     #designers article img {
       position: absolute;
       left: 0px;
-      top: 0px;
-      float: left; }
+      top: 0px; }
+    #designers article .img_hover {
+      border-color: #ffff73; }
     #designers article .info {
       position: absolute;
       overflow: hidden;
@@ -1531,7 +1532,7 @@ body {
         display: block;
         padding-left: 68px; }
         #designers article .info .mouse:hover, #designers article .info .tablet:hover {
-          background-color: #c5de20;
+          background-color: #dada60;
           text-decoration: none; }
         #designers article .info .mouse span, #designers article .info .tablet span {
           display: block;
@@ -1541,6 +1542,66 @@ body {
         #designers article .info .mouse .brand, #designers article .info .tablet .brand {
           padding-top: 10px;
           font-weight: 700; }
+  #designers article:nth-child(2) {
+    background-color: #ffff40; }
+    #designers article:nth-child(2) .img_hover {
+      border-color: #ffff40; }
+    #designers article:nth-child(2) .mouse:hover, #designers article:nth-child(2) .tablet:hover {
+      background-color: #dcdc35; }
+  #designers article:nth-child(3) {
+    background-color: #ffff20; }
+    #designers article:nth-child(3) .img_hover {
+      border-color: #ffff20; }
+    #designers article:nth-child(3) .mouse:hover, #designers article:nth-child(3) .tablet:hover {
+      background-color: #dede2a; }
+  #designers article:nth-child(4) {
+    background-color: #ffff00; }
+    #designers article:nth-child(4) .img_hover {
+      border-color: #ffff00; }
+    #designers article:nth-child(4) .mouse:hover, #designers article:nth-child(4) .tablet:hover {
+      background-color: #dcdc03; }
+  #designers article:nth-child(5) {
+    background-color: #b4f63d; }
+    #designers article:nth-child(5) .img_hover {
+      border-color: #b4f63d; }
+    #designers article:nth-child(5) .mouse:hover, #designers article:nth-child(5) .tablet:hover {
+      background-color: #dcdc03; }
+  #designers article:nth-child(6) {
+    background-color: #98ed00; }
+    #designers article:nth-child(6) .img_hover {
+      border-color: #98ed00; }
+    #designers article:nth-child(6) .mouse:hover, #designers article:nth-child(6) .tablet:hover {
+      background-color: #84ce00; }
+  #designers article:nth-child(7) {
+    background-color: #70ed3b; }
+    #designers article:nth-child(7) .img_hover {
+      border-color: #70ed3b; }
+    #designers article:nth-child(7) .mouse:hover, #designers article:nth-child(7) .tablet:hover {
+      background-color: #65d336; }
+  #designers article:nth-child(8) {
+    background-color: #00af64; }
+    #designers article:nth-child(8) .img_hover {
+      border-color: #00af64; }
+    #designers article:nth-child(8) .mouse:hover, #designers article:nth-child(8) .tablet:hover {
+      background-color: #008d51; }
+  #designers article:nth-child(9) {
+    background-color: #00af64; }
+    #designers article:nth-child(9) .img_hover {
+      border-color: #00af64; }
+    #designers article:nth-child(9) .mouse:hover, #designers article:nth-child(9) .tablet:hover {
+      background-color: #019958; }
+  #designers article:nth-child(10) {
+    background-color: #028e9b; }
+    #designers article:nth-child(10) .img_hover {
+      border-color: #028e9b; }
+    #designers article:nth-child(10) .mouse:hover, #designers article:nth-child(10) .tablet:hover {
+      background-color: #047580; }
+  #designers article:nth-child(11) {
+    background-color: #1e6d74; }
+    #designers article:nth-child(11) .img_hover {
+      border-color: #1e6d74; }
+    #designers article:nth-child(11) .mouse:hover, #designers article:nth-child(11) .tablet:hover {
+      background-color: #195c62; }
 
 #header {
   background-color: white;
@@ -1631,7 +1692,7 @@ body {
     margin: 0px;
     position: relative; }
     #commands .search:hover, #commands .search *:hover {
-      background-color: #c5de20; }
+      background-color: #0dd1cf; }
     #commands .search .box {
       border: 0;
       margin: 0;
@@ -1648,8 +1709,7 @@ body {
       background: transparent url("/Content/images/search.png") no-repeat center center;
       box-shadow: none;
       width: 50px;
-      height: 30px;
-      text-indent: 5000px; }
+      height: 30px; }
 
 footer {
   text-align: center;

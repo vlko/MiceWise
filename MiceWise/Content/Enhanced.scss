@@ -14,3 +14,89 @@
         margin-left: 10px;
     }
 }
+body.js {
+    min-width: 880px;
+    #designers {
+        width: 880px;
+        article {
+            width: 200px;
+            overflow: hidden;
+            .img_hover {
+                position: absolute;
+                left: -5px;
+                top: -5px;
+                width: 210px;
+                height: 202px;
+                background-repeat: no-repeat;
+                background-position:center center;
+             }
+             &:hover {
+                img, .img_hover {
+                    border-radius: 50%;
+                    border-style: solid;
+                    
+                    -moz-transition: all 150ms linear 0s;
+                    -webkit-transition: all 150ms linear 0s; 
+                    -o-transition: all 150ms linear 0s; 
+                    -ms-transition: all 150ms linear 0s;
+                    transition: all 150ms linear 0s;
+                }
+                .img_hover {
+                    left: 14px;
+                    top: 14px;
+                    width: 172px;
+                    height: 164px;
+                    border-width: 17px;
+                    background-image: url("/Content/images/search.png");
+                    margin: -17px;
+                }
+            }
+        }
+        article.js_click{
+            img, .img_hover {
+                display: none;
+            }
+            .info {
+                left: 0px;
+            }
+        }
+    }
+}
+#commands.js {
+    .add {
+        width: 50px;
+        text-indent: -80px;
+        overflow: hidden;
+        background-position: center center;
+        &:hover {
+            width: 130px;
+            background-position: 100px center;
+            -moz-transition: all 150ms linear 0s;
+            -webkit-transition: all 150ms linear 0s; 
+            -o-transition: all 150ms linear 0s; 
+            -ms-transition: all 150ms linear 0s;
+            transition: all 150ms linear 0s;
+        }
+    }
+    .search {
+        width: 50px;
+        text-align:right;
+        white-space: nowrap;
+        overflow: hidden;
+        .box {
+            display: none;
+        }
+        &:hover {
+            width: 200px;
+            background-position: 100px center;
+            -moz-transition: all 150ms linear 0s;
+            -webkit-transition: all 150ms linear 0s; 
+            -o-transition: all 150ms linear 0s; 
+            -ms-transition: all 150ms linear 0s;
+            transition: all 150ms linear 0s;
+            .box {
+                display: inline-block;
+            }
+        }
+    }
+}

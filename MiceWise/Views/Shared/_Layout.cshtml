@@ -29,54 +29,76 @@
 	@Html.RenderCss()
 </head>
 
-<body>
-    <div class="page">
-        @if (Request.IsAuthenticated)
-        {
-            <div id="menucontainer">
+    <body>
+        <script>
+            window.resizePage = function() {
+                var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+                if (width >= 880) {
+                    document.getElementsByTagName('body')[0].className = 'js';
+                } else {
+                    document.getElementsByTagName('body')[0].className = '';
+                }
+            };
+            window.resizePage();
+        </script>
+        <div class="page">
+            @if (Request.IsAuthenticated)
+            {
+                <div id="menucontainer">
 			
-                <ul id="menu">
-                    <li>@Html.Link("Home", (object) Routes.IndexOfHome())</li>
+                    <ul id="menu">
+                        <li>@Html.Link("Home", (object) Routes.IndexOfHome())</li>
                     
-                    <li>@Html.Link("Devices", (object) Routes.IndexOfDevice())</li>
-                    <li>@Html.Link("Celebrities", (object) Routes.IndexOfCelebrity())</li>
-                </ul>
-            </div>
-        }           
-        <header id="top-header">
-            <h1>WICE<span>&nbsp;&nbsp;</span>MICE</h1>
+                        <li>@Html.Link("Devices", (object) Routes.IndexOfDevice())</li>
+                        <li>@Html.Link("Celebrities", (object) Routes.IndexOfCelebrity())</li>
+                    </ul>
+                </div>
+            }           
+            <header id="top-header">
+                <h1>WICE<span>&nbsp;&nbsp;</span>MICE</h1>
 
-            <div id="commands">
-                @RenderSection("Commands", false)
-            </div>
-            <h2><span><strong>Hand picked</strong> Designers and their Gear</span></h2>
-        </header>
-        <div id="main">
-            <div id="content">
-                @RenderBody()
-            </div>
-            <div id="footer" class="cleaner">
-                <div id="logindisplay">
-                    @Html.Partial("LogOnUserControl")
+                <div id="commands">
+                    @RenderSection("Commands", false)
+                </div>
+                <h2><span><strong>Hand picked</strong> Designers and their Gear</span></h2>
+            </header>
+            <div id="main">
+                <div id="content">
+                    @RenderBody()
+                </div>
+                <div id="footer" class="cleaner">
+                    <div id="logindisplay">
+                        @Html.Partial("LogOnUserControl")
+                    </div>
                 </div>
             </div>
+            <footer>
+                <div class="authors"><a href="http://www.twitter.com/jakubptacin">@@JAKUBPTACIN</a><span>&nbsp;&nbsp;</span><a href="http://www.twitter.com/vlkodotnet">@@VLKODOTNET</a></div>
+                <div class="more">Made for fun</div>
+            </footer>
         </div>
-        <footer>
-            <div class="authors"><a href="http://www.twitter.com/jakubptacin">@@JAKUBPTACIN</a><span>&nbsp;&nbsp;</span><a href="http://www.twitter.com/vlkodotnet">@@VLKODOTNET</a></div>
-            <div class="more">Made for fun</div>
-        </footer>
-    </div>
-		@Html.RenderScripts()
-		@Html.RenderInlineScripts()
-<script>
-	var _gaq = [['_setAccount', 'XX-XXXX'], ['_trackPageview']];
-	(function(d, t) {
-		var g = d.createElement(t),
-			s = d.getElementsByTagName(t)[0];
-		g.async = true;
-		g.src = ('https:' == location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-		s.parentNode.insertBefore(g, s);
-	})(document, 'script');
-</script>
-</body>
+        @Html.RenderScripts()
+        @Html.RenderInlineScripts()
+        <script>
+            $(function() {
+                $(window).resize(resizePage);
+                $("body.js #designers article img").after("<div class='img_hover'>");
+                $("body.js #designers article .img_hover, body.js #designers article img").click(function () {
+                    $("body.js #designers article").removeClass("js_click");
+                    $(this).parent().addClass("js_click");
+                });
+                if (!(('ontouchstart' in window) || window.DocumentTouch && document instanceof DocumentTouch)) {
+                    $("#commands").addClass("js");
+                }
+            });
+            var _gaq = [['_setAccount', 'XX-XXXX'], ['_trackPageview']];
+            (function(d, t) {
+                var g = d.createElement(t),
+                    s = d.getElementsByTagName(t)[0];
+                g.async = true;
+                g.src = ('https:' == location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                s.parentNode.insertBefore(g, s);
+            })(document, 'script');
+        </script>
+    </body>
 </html>

@@ -12,3 +12,70 @@ body {
     float: left;
     margin-right: 10px;
     margin-left: 10px; }
+
+body.js {
+  min-width: 880px; }
+  body.js #designers {
+    width: 880px; }
+    body.js #designers article {
+      width: 200px;
+      overflow: hidden; }
+      body.js #designers article .img_hover {
+        position: absolute;
+        left: -5px;
+        top: -5px;
+        width: 210px;
+        height: 202px;
+        background-repeat: no-repeat;
+        background-position: center center; }
+      body.js #designers article:hover img, body.js #designers article:hover .img_hover {
+        border-radius: 50%;
+        border-style: solid;
+        -moz-transition: all 150ms linear 0s;
+        -webkit-transition: all 150ms linear 0s;
+        -o-transition: all 150ms linear 0s;
+        -ms-transition: all 150ms linear 0s;
+        transition: all 150ms linear 0s; }
+      body.js #designers article:hover .img_hover {
+        left: 14px;
+        top: 14px;
+        width: 172px;
+        height: 164px;
+        border-width: 17px;
+        background-image: url("/Content/images/search.png");
+        margin: -17px; }
+    body.js #designers article.js_click img, body.js #designers article.js_click .img_hover {
+      display: none; }
+    body.js #designers article.js_click .info {
+      left: 0px; }
+
+#commands.js .add {
+  width: 50px;
+  text-indent: -80px;
+  overflow: hidden;
+  background-position: center center; }
+  #commands.js .add:hover {
+    width: 130px;
+    background-position: 100px center;
+    -moz-transition: all 150ms linear 0s;
+    -webkit-transition: all 150ms linear 0s;
+    -o-transition: all 150ms linear 0s;
+    -ms-transition: all 150ms linear 0s;
+    transition: all 150ms linear 0s; }
+#commands.js .search {
+  width: 50px;
+  text-align: right;
+  white-space: nowrap;
+  overflow: hidden; }
+  #commands.js .search .box {
+    display: none; }
+  #commands.js .search:hover {
+    width: 200px;
+    background-position: 100px center;
+    -moz-transition: all 150ms linear 0s;
+    -webkit-transition: all 150ms linear 0s;
+    -o-transition: all 150ms linear 0s;
+    -ms-transition: all 150ms linear 0s;
+    transition: all 150ms linear 0s; }
+    #commands.js .search:hover .box {
+      display: inline-block; }
