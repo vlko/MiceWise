@@ -14,7 +14,7 @@
 <section id="designers">
     @if (Model.CurrentPage > 1)
     {
-        <a class="prev_page" title="For all who are not aware of back button" href="@Routes.IndexOfThis(Page : Model.CurrentPage - 1)"><span>PREV PAGE</span></a>
+        <a class="prev_page" title="For all who are not aware of back button" href="@Routes.IndexOfThis(page : Model.CurrentPage - 1)"><span>PREV PAGE</span></a>
     }
     @foreach (var item in Model) {
         <article>
@@ -28,7 +28,7 @@
     }
     @if (Model.CurrentPage < Model.PagesNumber)
     {
-        <a class="next_page" href="@Routes.IndexOfThis(Page : Model.CurrentPage + 1)"><span>NEXT PAGE</span></a>
+        <a class="next_page" href="@Routes.IndexOfThis(page : Model.CurrentPage + 1)"><span>NEXT PAGE</span></a>
     }
     <div class="clearfix"></div>
 </section>

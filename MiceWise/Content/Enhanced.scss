@@ -75,6 +75,12 @@ body.js {
                 background-repeat: no-repeat;
                 background-position:center center;
              }
+             img, .img_hover {
+                    -moz-transition: all 150ms linear 0s;
+                    -webkit-transition: all 150ms linear 0s; 
+                    -o-transition: all 150ms linear 0s; 
+                    transition: all 150ms linear 0s;
+                }
              &:hover {
                 img, .img_hover {
                     border-radius: 50%;

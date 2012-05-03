@@ -15,6 +15,7 @@ body.js #designers .next_page span{display:block;width:200px;height:200px;margin
 body.js #designers .next_page:hover span{background-color:black;color:#3f3f3f;margin-left:0}
 body.js #designers article{width:200px;overflow:hidden}
 body.js #designers article .img_hover{position:absolute;border-bottom-width:18px;border-style:solid;left:-15px;top:-9px;width:218px;height:200px;background-repeat:no-repeat;background-position:center center}
+body.js #designers article img,body.js #designers article .img_hover{-moz-transition:all 150ms linear 0s;-webkit-transition:all 150ms linear 0s;-o-transition:all 150ms linear 0s;transition:all 150ms linear 0s}
 body.js #designers article:hover img,body.js #designers article:hover .img_hover{border-radius:50%;-moz-transition:all 150ms linear 0s;-webkit-transition:all 150ms linear 0s;-o-transition:all 150ms linear 0s;-ms-transition:all 150ms linear 0s;transition:all 150ms linear 0s}
 body.js #designers article:hover .img_hover{left:5px;top:2px;width:166px;height:165px;border-width:30px;background-image:url("/Content/images/search.png");margin:-17px}
 body.js #designers article.js_click img,body.js #designers article.js_click .img_hover{display:none}

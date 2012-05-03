@@ -21,6 +21,7 @@ namespace MiceWise.web.Controllers
         /// URL: Home/Index
         /// </summary>
         /// <returns>Action result.</returns>
+        [OutputCache(Duration = 30, VaryByParam = "page")]
         public ActionResult Index(PagedModel<CelebrityView> pageModel)
         {
             pageModel.PageItems = 11;
