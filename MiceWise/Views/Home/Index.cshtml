@@ -12,21 +12,25 @@
     <a href="@Routes.AddOfThis()" class="add" id="add_button"><span><strong>ADD ME</strong></span></a>
 }
 <section id="designers">
-@foreach (var item in Model) {
-    <article>
-        <img src="/Users/@item.Picture" title="@item.Name" width="200" height="200"/>
-        <section class="info">
-        <header><h1>@item.Name</h1><h2>@item.Place</h2><a href="@item.Portfolio">@item.Portfolio</a></header>
-        <a class="mouse" href="@item.MouseUrl"><span class="brand">@item.MouseBrand</span><span class="type">@item.Mouse</span></a>
-        <a class="tablet" href="@item.TabletUrl"><span class="brand">@item.TabletBrand</span><span class="type">@item.Tablet</span></a>
-        </section>
-    </article>
-}
-@if (Model.CurrentPage < Model.PagesNumber)
-{
-    <a class="next_page" href="@Routes.IndexOfThis(Page : Model.CurrentPage + 1)"><span>NEXT PAGE</span></a>
-}
-<div class="clearfix"></div>
+    @if (Model.CurrentPage > 1)
+    {
+        <a class="prev_page" title="For all who are not aware of back button" href="@Routes.IndexOfThis(Page : Model.CurrentPage - 1)"><span>PREV PAGE</span></a>
+    }
+    @foreach (var item in Model) {
+        <article>
+            <img src="/Users/@item.Picture" title="@item.Name" width="200" height="200"/>
+            <section class="info">
+                <header><h1>@item.Name</h1><h2>@item.Place</h2><a href="@item.Portfolio">@item.Portfolio</a></header>
+                <a class="mouse" href="@item.MouseUrl"><span class="brand">@item.MouseBrand</span><span class="type">@item.Mouse</span></a>
+                <a class="tablet" href="@item.TabletUrl"><span class="brand">@item.TabletBrand</span><span class="type">@item.Tablet</span></a>
+            </section>
+        </article>
+    }
+    @if (Model.CurrentPage < Model.PagesNumber)
+    {
+        <a class="next_page" href="@Routes.IndexOfThis(Page : Model.CurrentPage + 1)"><span>NEXT PAGE</span></a>
+    }
+    <div class="clearfix"></div>
 </section>
 @{ Html.ScriptInlineInclude(
 @<script type="text/javascript">

@@ -1482,6 +1482,21 @@ body {
     #designers .next_page:hover {
       background-color: #3f3f3f;
       color: black; }
+  #designers .prev_page {
+    display: block;
+    width: 400px;
+    height: 100px;
+    text-align: center;
+    line-height: 100px;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 10px;
+    background-color: black;
+    color: #3f3f3f;
+    margin-bottom: 20px; }
+    #designers .prev_page:hover {
+      background-color: #3f3f3f;
+      color: black; }
   #designers article {
     background-color: #ffff73;
     margin-bottom: 20px;
