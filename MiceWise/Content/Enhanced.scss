@@ -2,13 +2,28 @@
     min-width: 840px;
 }
 #commands {
-    margin-top: -42px;
-    margin-bottom: 100px;
+    .add {
+        margin-left: -10px;
+        span {
+            width: 400px;
+        }
+    }
+    .search {
+        margin-right: -10px;
+        .box {
+            width: 355px;
+        }
+    }
 }
+
 #designers {
     width: 840px;
     overflow-x: hidden;
-    article {
+    .next_page {
+        height: 200px;
+        line-height: 200px;
+    }
+    article, .next_page {
         float: left;
         margin-right: 10px;
         margin-left: 10px;
@@ -16,25 +31,42 @@
 }
 body.js {
     min-width: 880px;
+    
     #designers {
         width: 880px;
+        .next_page {
+            width: 200px;
+            overflow: hidden;
+            background: white url("/Content/images/next_page.png") no-repeat center center;
+            span {
+                display: block;
+                width: 200px;
+                height: 200px;
+                margin-left: 200px;
+            }
+            &:hover span{
+                background-color: black;
+	            color: #3f3f3f;
+                margin-left: 0px;
+            }
+        }
         article {
             width: 200px;
             overflow: hidden;
             .img_hover {
                 position: absolute;
-                left: -5px;
-                top: -5px;
-                width: 210px;
-                height: 202px;
+                border-bottom-width: 18px;
+                border-style: solid;
+                left: -15px;
+                top: -9px;
+                width: 218px;
+                height: 200px;
                 background-repeat: no-repeat;
                 background-position:center center;
              }
              &:hover {
                 img, .img_hover {
                     border-radius: 50%;
-                    border-style: solid;
-                    
                     -moz-transition: all 150ms linear 0s;
                     -webkit-transition: all 150ms linear 0s; 
                     -o-transition: all 150ms linear 0s; 
@@ -42,11 +74,11 @@ body.js {
                     transition: all 150ms linear 0s;
                 }
                 .img_hover {
-                    left: 14px;
-                    top: 14px;
-                    width: 172px;
-                    height: 164px;
-                    border-width: 17px;
+                    left: 5px;
+                    top: 2px;
+                    width: 166px;
+                    height: 165px;
+                    border-width: 30px;
                     background-image: url("/Content/images/search.png");
                     margin: -17px;
                 }
@@ -61,41 +93,80 @@ body.js {
             }
         }
     }
-}
-#commands.js {
-    .add {
-        width: 50px;
-        text-indent: -80px;
-        overflow: hidden;
-        background-position: center center;
-        &:hover {
-            width: 130px;
-            background-position: 100px center;
-            -moz-transition: all 150ms linear 0s;
-            -webkit-transition: all 150ms linear 0s; 
-            -o-transition: all 150ms linear 0s; 
-            -ms-transition: all 150ms linear 0s;
-            transition: all 150ms linear 0s;
+
+    #top-header {
+        margin-bottom: 20px;
+        h1 {
+            margin-bottom: 45px;
+        }
+        #social {
+            float:left;
+            margin-top: -78px;
         }
     }
-    .search {
-        width: 50px;
-        text-align:right;
-        white-space: nowrap;
-        overflow: hidden;
-        .box {
-            display: none;
+    
+
+    #commands.js {
+        margin-top: -242px;
+        float: right;
+        .add, .search {
+            float: right;
+            position: static;
         }
-        &:hover {
-            width: 200px;
-            background-position: 100px center;
-            -moz-transition: all 150ms linear 0s;
-            -webkit-transition: all 150ms linear 0s; 
-            -o-transition: all 150ms linear 0s; 
-            -ms-transition: all 150ms linear 0s;
-            transition: all 150ms linear 0s;
+        .add {
+            width: 50px;
+            text-indent: -130px; 
+            text-align: left;
+            overflow: hidden;
+            margin-right: 5px;
+            margin-left: 50px;
+            background-image: url("/Content/images/add.png");
+            background-repeat: no-repeat;
+            background-position: center center;
+            &:hover {
+                width: 180px;
+                text-indent: 0px;
+                background-position: 150px center;
+                -moz-transition: all 150ms linear 0s;
+                -webkit-transition: all 150ms linear 0s; 
+                -o-transition: all 150ms linear 0s; 
+                -ms-transition: all 150ms linear 0s;
+                transition: all 150ms linear 0s;
+            }
+            
+            span {
+                display: inline;
+                white-space: nowrap;
+                background-image: none;
+                width: auto;
+                margin-right: 50px; 
+                strong {
+                    
+                    margin-left: 15px;
+                }
+            }
+        }
+        .search {
+            width: 50px;
+            text-align:right;
+            white-space: nowrap;
+            overflow: hidden;
+            margin-right: 0px;
             .box {
-                display: inline-block;
+                display: none;
+                width:130px;
+            }
+            &:hover {
+                width: 200px;
+                background-position: 100px center;
+                -moz-transition: all 150ms linear 0s;
+                -webkit-transition: all 150ms linear 0s; 
+                -o-transition: all 150ms linear 0s; 
+                -ms-transition: all 150ms linear 0s;
+                transition: all 150ms linear 0s;
+                .box {
+                    display: inline-block;
+                }
             }
         }
     }

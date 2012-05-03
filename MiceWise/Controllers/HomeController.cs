@@ -23,6 +23,7 @@ namespace MiceWise.web.Controllers
         /// <returns>Action result.</returns>
         public ActionResult Index(PagedModel<CelebrityView> pageModel)
         {
+            pageModel.PageItems = 11;
             pageModel.LoadData(RepositoryFactory.Command<ICelebrityCommands>().GetActive().OrderByDescending(item => item.Priority));
             return ViewWithAjax(pageModel);
         }
@@ -63,7 +64,7 @@ namespace MiceWise.web.Controllers
                     MoveUploadedFile(model);
                     RepositoryFactory.Command<ICelebrityCommands>().Register(model);
                     tran.Commit();
-                    return RedirectToActionWithAjax("Index");
+                    return ViewWithAjax("Thanks");
                 }
             }
             return ViewWithAjax(model);

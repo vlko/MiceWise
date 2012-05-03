@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using System.Web.Routing;
 using NLog;
 using vlko.core;
+using vlko.core.Components;
 using vlko.core.InversionOfControl;
 
 namespace MiceWise
@@ -49,6 +50,9 @@ namespace MiceWise
 
             RegisterGlobalFilters(GlobalFilters.Filters);
             RegisterRoutes(RouteTable.Routes);
+
+            ModelBinders.Binders.DefaultBinder = new ExtendedModelBinder();
+
 
             var indexLocationDirectory = HttpContext.Current.Server.MapPath(IndexLocationConst);
             var dataExists = Directory.Exists(indexLocationDirectory);

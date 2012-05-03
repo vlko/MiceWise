@@ -180,9 +180,12 @@
     <Content Include="Content\images\comment.png" />
     <Content Include="Content\images\comments.png" />
     <Content Include="Content\images\device-delim.png" />
+    <Content Include="Content\images\header-left.png" />
+    <Content Include="Content\images\header-right.png" />
     <Content Include="Content\images\header-split.png" />
     <Content Include="Content\images\loading.gif" />
     <Content Include="Content\images\mouse.png" />
+    <Content Include="Content\images\next_page.png" />
     <Content Include="Content\images\note-main.gif" />
     <Content Include="Content\images\note.png" />
     <Content Include="Content\images\publish.gif" />
@@ -269,6 +272,7 @@
     <Content Include="Content\themes\base\minified\jquery.ui.slider.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
+    <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\Common.js" />
     <Content Include="Scripts\Grid.js" />
@@ -529,6 +533,7 @@
     <Content Include="Views\Celebrity\Delete.cshtml" />
     <Content Include="Views\Home\Add.cshtml" />
     <None Include="Properties\PublishProfiles\Profile.pubxml" />
+    <Content Include="Views\Home\Thanks.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>MiceWize - @ViewBag.Title</title>
+	<title>WiseMice - @ViewBag.Title</title>
     <meta name="description" content="MiceWize">
     <meta name="viewport" content="width=device-width" />
+    <link rel="shortcut icon" href="favicon.ico">
 	<!--[if lt IE 9]>
 	<script src="/Scripts/html5.js"></script>
     <![endif]-->
@@ -55,14 +56,17 @@
                 </div>
             }           
             <header id="top-header">
-                <h1>WICE<span>&nbsp;&nbsp;</span>MICE</h1>
-
+                <h1><a href="@Routes.IndexOfHome">WISE<span>&nbsp;&nbsp;</span>MICE</a></h1>
+                <div id="social">
+                    <iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.facebook.com%2Fwisemice.org&amp;send=false&amp;layout=button_count&amp;width=90&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=20" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:90px; height:20px;" allowTransparency="true"></iframe>
+                    <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://www.wisemice.org/" data-text="Check out this site! World's Best Designers and their Gear" data-hashtags="wisemice">Tweet</a>
+                </div>
+                <h2><span class="title"><strong>Hand picked</strong> Designers and their <span class="underscore">Gear</span></span></h2>
+            </header>
+            <div id="main">
                 <div id="commands">
                     @RenderSection("Commands", false)
                 </div>
-                <h2><span><strong>Hand picked</strong> Designers and their Gear</span></h2>
-            </header>
-            <div id="main">
                 <div id="content">
                     @RenderBody()
                 </div>
@@ -74,9 +78,10 @@
             </div>
             <footer>
                 <div class="authors"><a href="http://www.twitter.com/jakubptacin">@@JAKUBPTACIN</a><span>&nbsp;&nbsp;</span><a href="http://www.twitter.com/vlkodotnet">@@VLKODOTNET</a></div>
-                <div class="more">Made for fun</div>
+                <div class="more">Made for <span class="underscore">fun</span></div>
             </footer>
         </div>
+        <div id="fb-root"></div>
         @Html.RenderScripts()
         @Html.RenderInlineScripts()
         <script>
@@ -91,7 +96,7 @@
                     $("#commands").addClass("js");
                 }
             });
-            var _gaq = [['_setAccount', 'XX-XXXX'], ['_trackPageview']];
+            var _gaq = [['_setAccount', 'UA-18426166-8'], ['_trackPageview']];
             (function(d, t) {
                 var g = d.createElement(t),
                     s = d.getElementsByTagName(t)[0];
@@ -99,6 +104,9 @@
                 g.src = ('https:' == location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
                 s.parentNode.insertBefore(g, s);
             })(document, 'script');
+            
+            // twitter
+            !function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = "//platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs); } }(document, "script", "twitter-wjs");
         </script>
     </body>
 </html>

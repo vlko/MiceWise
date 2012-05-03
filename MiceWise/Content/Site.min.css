@@ -334,6 +334,8 @@ button.btn::-moz-focus-inner,input[type=submit].btn::-moz-focus-inner{padding:0;
 body{min-width:530px}
 .page{margin-left:auto;margin-right:auto}
 #designers{width:400px;margin:auto;margin-right:auto}
+#designers .next_page{display:block;width:400px;height:100px;text-align:center;line-height:100px;font-size:14px;font-weight:700;letter-spacing:10px;background-color:black;color:#3f3f3f}
+#designers .next_page:hover{background-color:#3f3f3f;color:black}
 #designers article{background-color:#ffff73;margin-bottom:20px;height:200px;width:400px;position:relative}
 #designers article *{color:black;white-space:nowrap;overflow:hidden}
 #designers article img{position:absolute;left:0;top:0}
@@ -341,14 +343,14 @@ body{min-width:530px}
 #designers article .info{position:absolute;overflow:hidden;left:200px;top:0;width:200px;height:200px}
 #designers article .info header{left:200px;top:0;height:78px;padding-top:20px}
 #designers article .info header h1{margin:0 20px 0 20px;height:19px;font-family:'Droid Sans',sans-serif;font-size:14px;font-weight:700;line-height:19px}
-#designers article .info header h2{margin:0 20px 0 20px;height:19px;font-family:"Droid Serif","Georgia",Times New Roman,Times,serif;font-size:14px;font-weight:normal;line-height:19px;font-style:italic}
-#designers article .info header a{margin:0 20px 0 20px;height:19px;line-height:19px;font-family:"Droid Serif","Georgia",Times New Roman,Times,serif;font-size:14px;font-weight:normal;line-height:19px;font-style:italic;display:block;text-decoration:underline}
+#designers article .info header h2{margin:0 20px 0 20px;height:19px;font-family:"Droid Serif","Georgia",Times New Roman,Times,serif;font-size:13px;font-weight:normal;line-height:19px;font-style:italic}
+#designers article .info header a{margin:0 20px 0 20px;height:19px;line-height:19px;font-family:"Droid Serif","Georgia",Times New Roman,Times,serif;font-size:13px;font-weight:normal;line-height:19px;font-style:italic;display:block;text-decoration:underline}
 #designers article .info .mouse{background:transparent url("/Content/images/mouse.png") no-repeat left top;margin-bottom:1px}
 #designers article .info .tablet{background:transparent url("/Content/images/tablet.png") no-repeat left top}
 #designers article .info .mouse,#designers article .info .tablet{height:51px;display:block;padding-left:68px}
 #designers article .info .mouse:hover,#designers article .info .tablet:hover{background-color:#dada60;text-decoration:none}
-#designers article .info .mouse span,#designers article .info .tablet span{display:block;font-size:14px;height:15px;line-height:15px}
-#designers article .info .mouse .brand,#designers article .info .tablet .brand{padding-top:10px;font-weight:700}
+#designers article .info .mouse span,#designers article .info .tablet span{display:block;font-size:13px;height:15px;line-height:15px}
+#designers article .info .mouse .brand,#designers article .info .tablet .brand{padding-top:10px;font-size:14px;font-weight:700}
 #designers article:nth-child(2){background-color:#ffff40}
 #designers article:nth-child(2) .img_hover{border-color:#ffff40}
 #designers article:nth-child(2) .mouse:hover,#designers article:nth-child(2) .tablet:hover{background-color:#dcdc35}
@@ -360,7 +362,7 @@ body{min-width:530px}
 #designers article:nth-child(4) .mouse:hover,#designers article:nth-child(4) .tablet:hover{background-color:#dcdc03}
 #designers article:nth-child(5){background-color:#b4f63d}
 #designers article:nth-child(5) .img_hover{border-color:#b4f63d}
-#designers article:nth-child(5) .mouse:hover,#designers article:nth-child(5) .tablet:hover{background-color:#dcdc03}
+#designers article:nth-child(5) .mouse:hover,#designers article:nth-child(5) .tablet:hover{background-color:#9ad138}
 #designers article:nth-child(6){background-color:#98ed00}
 #designers article:nth-child(6) .img_hover{border-color:#98ed00}
 #designers article:nth-child(6) .mouse:hover,#designers article:nth-child(6) .tablet:hover{background-color:#84ce00}
@@ -383,25 +385,30 @@ body{min-width:530px}
 #ajax_content .actions{padding-left:190px}
 #add-form{padding:20px 20px 0 20px}
 #add-form h2{text-align:center;font-family:"Droid Serif","Georgia",Times New Roman,Times,serif;font-size:18px;font-weight:normal;line-height:normal;font-style:italic}
-#top-header{margin-bottom:20px}
-#top-header h1{text-align:center;margin:45px 0 0 0;line-height:42px;font-size:14px;font-weight:700;letter-spacing:10px;color:black;text-transform:uppercase}
+#top-header h1{text-align:center;margin:45px 0 15px 0;line-height:42px;font-size:14px;font-weight:700;letter-spacing:10px;color:black;text-transform:uppercase}
 #top-header h1 span{background:transparent url("/Content/images/header-split.png") no-repeat left center;display:inline-block;height:42px}
+#top-header h1 a{color:black}
+#top-header h1 a:hover{color:black;text-decoration:none}
+#top-header #social{height:30px;line-height:30px;margin-left:5px}
 #top-header h2{color:white;background-color:black;text-align:center;clear:both;font-family:"Droid Serif","Georgia",Times New Roman,Times,serif;font-size:16px;font-weight:normal;line-height:normal;font-style:italic;height:130px;line-height:130px}
-#top-header h2 span:before{content:"";display:inline-block;background:transparent url("/Content/images/header-left.png") no-repeat left center;width:70px;height:23px;margin-bottom:-9px}
-#top-header h2 span:after{content:"";display:inline-block;background:transparent url("/Content/images/header-right.png") no-repeat right center;width:70px;height:23px;margin-bottom:-9px}
-#commands{line-height:50px;text-align:right}
-#commands .add{color:black;float:right;width:130px;height:50px;line-height:50px;font-weight:700;letter-spacing:10px;background:#fbf7f6 url("/Content/images/add.png") no-repeat 100px center;margin-right:5px}
+#top-header h2 .title:before{content:"";display:inline-block;background:transparent url("/Content/images/header-left.png") no-repeat left center;width:70px;height:23px;margin-bottom:-9px}
+#top-header h2 .title:after{content:"";display:inline-block;background:transparent url("/Content/images/header-right.png") no-repeat right center;width:70px;height:23px;margin-bottom:-9px}
+#top-header h2 .underscore{padding:3px 0;border-bottom:1px dotted #72721c}
+#commands{line-height:50px;height:50px;position:relative;margin-bottom:20px}
+#commands .add{color:black;position:absolute;text-align:right;top:0;left:0;width:50%;height:50px;line-height:50px;font-weight:700;letter-spacing:10px;margin-left:-2px;background-color:#fbf7f6}
 #commands .add:hover,#commands .add *:hover{color:white;background-color:#c5de20;text-decoration:none}
-#commands .add span{margin-right:50px}
-#commands .search{float:right;width:200px;height:50px;background-color:#fbf7f6;padding:0;margin:0;position:relative}
+#commands .add span{display:inline-block;background:transparent url("/Content/images/add.png") no-repeat left center;width:198px;text-align:left;line-height:50px}
+#commands .add span strong{background-image:none;margin-left:50px;line-height:50px}
+#commands .search{position:absolute;top:0;right:0;width:50%;height:50px;margin-right:-2px;background-color:#fbf7f6;padding:0;margin:0}
 #commands .search:hover,#commands .search *:hover{background-color:#0dd1cf}
-#commands .search .box{border:0;margin:0;padding:0;background-color:transparent;box-shadow:none;width:130px;height:30px;line-height:30px}
-#commands .search .submit{border:0;margin:0;padding:0;background:transparent url("/Content/images/search.png") no-repeat center center;box-shadow:none;width:50px;height:30px}
+#commands .search .box{border:0;margin:0;padding:0;background-color:transparent;box-shadow:none;margin-left:10px;width:155px;height:30px;line-height:30px}
+#commands .search .submit{border:0;margin:0;padding:0;background:transparent url("/Content/images/search.png") no-repeat center center;box-shadow:none;width:50px}
 footer{text-align:center;color:white;background-color:black;padding-top:40px}
 footer .authors{font-size:14px;font-weight:700;letter-spacing:10px;height:42px;line-height:42px}
 footer .authors a{color:#3f3f3f}
 footer .authors span{background:transparent url("/Content/images/header-split.png") no-repeat left center;display:inline-block;height:42px}
 footer .more{font-family:"Droid Serif","Georgia",Times New Roman,Times,serif;font-size:13px;font-weight:normal;line-height:normal;font-style:italic;height:130px;line-height:130px}
+footer .more .underscore{padding:2px 0;border-bottom:1px dotted #72721c}
 #logindisplay{font-size:.7em;display:block;text-align:right;padding:5px 10px 0 0}
 #logindisplay a:link{color:silver;text-decoration:underline}
 #logindisplay a:visited{color:silver;text-decoration:underline}
