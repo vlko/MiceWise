@@ -24,7 +24,7 @@ namespace MiceWise.web.Controllers
         [OutputCache(Duration = 30, VaryByParam = "page")]
         public ActionResult Index(PagedModel<CelebrityView> pageModel)
         {
-            pageModel.PageItems = 11;
+            pageModel.PageItems = 10;
             pageModel.PrevAsItem = true;
             pageModel.LoadData(RepositoryFactory.Command<ICelebrityCommands>().GetActive().OrderByDescending(item => item.Priority));
             return ViewWithAjax(pageModel);
