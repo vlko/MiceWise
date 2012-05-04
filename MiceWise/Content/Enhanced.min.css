@@ -4,17 +4,18 @@ body{min-width:840px}
 #commands .search{margin-right:-10px}
 #commands .search .box{width:355px}
 #designers{width:840px;overflow-x:hidden}
-#designers .next_page{height:200px;line-height:200px}
-#designers .prev_page{width:820px;height:50px;line-height:50px;margin-left:10px;margin-right:10px}
-#designers article,#designers .next_page{float:left;margin-right:10px;margin-left:10px}
+#designers .next_page,#designers .prev_page{height:200px;line-height:200px}
+#designers article,#designers .next_page,#designers .prev_page{float:left;margin-right:10px;margin-left:10px}
 body.js{min-width:880px}
 body.js #designers{width:880px}
 body.js #designers .prev_page{width:860px}
-body.js #designers .next_page{width:200px;overflow:hidden;background:white url("/Content/images/next_page.png") no-repeat center center}
-body.js #designers .next_page span{display:block;width:200px;height:200px;margin-left:200px}
-body.js #designers .next_page:hover span{background-color:black;color:#3f3f3f;margin-left:0}
+body.js #designers .next_page,body.js #designers .prev_page{width:200px;overflow:hidden}
+body.js #designers .next_page span,body.js #designers .prev_page span{display:block;width:200px;height:200px;margin-left:200px}
+body.js #designers .next_page:hover span,body.js #designers .prev_page:hover span{background-color:black;color:#3f3f3f;margin-left:0}
+body.js #designers .next_page{background:white url("/Content/images/next_page.png") no-repeat center center}
+body.js #designers .prev_page{background:white url("/Content/images/prev_page.png") no-repeat center center}
 body.js #designers article{width:200px;overflow:hidden}
-body.js #designers article .img_hover{position:absolute;border-bottom-width:18px;border-style:solid;left:-15px;top:-9px;width:218px;height:200px;background-repeat:no-repeat;background-position:center center}
+body.js #designers article .img_hover{display:block;position:absolute;border-bottom-width:18px;border-style:solid;left:-15px;top:-9px;width:218px;height:200px;background-repeat:no-repeat;background-position:center center}
 body.js #designers article img,body.js #designers article .img_hover{-moz-transition:all 150ms linear 0s;-webkit-transition:all 150ms linear 0s;-o-transition:all 150ms linear 0s;transition:all 150ms linear 0s}
 body.js #designers article:hover img,body.js #designers article:hover .img_hover{border-radius:50%;-moz-transition:all 150ms linear 0s;-webkit-transition:all 150ms linear 0s;-o-transition:all 150ms linear 0s;-ms-transition:all 150ms linear 0s;transition:all 150ms linear 0s}
 body.js #designers article:hover .img_hover{left:5px;top:2px;width:166px;height:165px;border-width:30px;background-image:url("/Content/images/search.png");margin:-17px}

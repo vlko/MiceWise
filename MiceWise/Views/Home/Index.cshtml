@@ -7,14 +7,18 @@
 @section Commands
 {
     <span class="search">
-        <input type="text" name="search" class="box"/><input type="submit" value="" title="search" class="submit"/>
+        @using (Html.BeginForm((object)Routes.SearchOfThis, method: FormMethod.Get))
+        {
+            @Html.TextBox("query", (object)ViewBag.SearchQuery, new { @class = "box"})
+            <input type="submit" value="" title="search" class="submit"/>
+        }
     </span>
     <a href="@Routes.AddOfThis()" class="add" id="add_button"><span><strong>ADD ME</strong></span></a>
 }
 <section id="designers">
     @if (Model.CurrentPage > 1)
     {
-        <a class="prev_page" title="For all who are not aware of back button" href="@Routes.IndexOfThis(page : Model.CurrentPage - 1)"><span>PREV PAGE</span></a>
+        <a class="prev_page" title="previous page" href="@Routes.IndexOfThis(page : Model.CurrentPage - 1)"><span>PREV PAGE</span></a>
     }
     @foreach (var item in Model) {
         <article>
@@ -28,7 +32,7 @@
     }
     @if (Model.CurrentPage < Model.PagesNumber)
     {
-        <a class="next_page" href="@Routes.IndexOfThis(page : Model.CurrentPage + 1)"><span>NEXT PAGE</span></a>
+        <a class="next_page" title="next page" href="@Routes.IndexOfThis(page : Model.CurrentPage + 1)"><span>NEXT PAGE</span></a>
     }
     <div class="clearfix"></div>
 </section>

@@ -1,0 +1,31 @@
+﻿@model MiceWiseData.ViewModel.CelebrityView[]
+@{
+	ViewBag.Title = "Hand picked designers and their Gear";
+}
+@section Commands
+{
+    <span class="search">
+        @using (Html.BeginForm((object)Routes.SearchOfThis, method: FormMethod.Get))
+        {
+            @Html.TextBox("query", (object)ViewBag.SearchQuery, new { @class = "box"})
+            <input type="submit" value="" title="search" class="submit"/>
+        }
+    </span>
+}
+<section id="designers">
+    @foreach (var item in Model) {
+        <article>
+            <img src="/Users/@item.Picture" title="@item.Name" width="200" height="200"/>
+            <section class="info">
+                <header><h1>@item.Name</h1><h2>@item.Place</h2><a href="@item.Portfolio">@item.Portfolio</a></header>
+                <a class="mouse" href="@item.MouseUrl"><span class="brand">@item.MouseBrand</span><span class="type">@item.Mouse</span></a>
+                <a class="tablet" href="@item.TabletUrl"><span class="brand">@item.TabletBrand</span><span class="type">@item.Tablet</span></a>
+            </section>
+        </article>
+    }
+    @if (Model.Length == 0)
+    {
+        <h2>Empty result.</h2>
+    }
+    <div class="clearfix"></div>
+</section>

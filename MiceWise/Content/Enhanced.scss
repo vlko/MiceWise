@@ -19,18 +19,11 @@
 #designers {
     width: 840px;
     overflow-x: hidden;
-    .next_page {
+    .next_page, .prev_page {
         height: 200px;
         line-height: 200px;
     }
-    .prev_page {
-        width: 820px;
-        height: 50px;
-        line-height: 50px;
-        margin-left: 10px;
-        margin-right: 10px;
-    }
-    article, .next_page {
+    article, .next_page, .prev_page {
         float: left;
         margin-right: 10px;
         margin-left: 10px;
@@ -45,10 +38,9 @@ body.js {
             width: 860px;
             
         }
-        .next_page {
+        .next_page, .prev_page {
             width: 200px;
             overflow: hidden;
-            background: white url("/Content/images/next_page.png") no-repeat center center;
             span {
                 display: block;
                 width: 200px;
@@ -61,10 +53,17 @@ body.js {
                 margin-left: 0px;
             }
         }
+        .next_page {
+            background: white url("/Content/images/next_page.png") no-repeat center center;
+        }
+        .prev_page {
+            background: white url("/Content/images/prev_page.png") no-repeat center center;
+        }
         article {
             width: 200px;
             overflow: hidden;
             .img_hover {
+                display: block;
                 position: absolute;
                 border-bottom-width: 18px;
                 border-style: solid;

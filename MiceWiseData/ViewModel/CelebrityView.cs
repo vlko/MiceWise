@@ -7,6 +7,8 @@ namespace MiceWiseData.ViewModel
 {
     public class CelebrityView
     {
+        public string Id { get; set; }
+
         public string Name { get; set; }
         public string Place { get; set; }
         public string Portfolio { get; set; }

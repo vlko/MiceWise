@@ -30,6 +30,7 @@ namespace vlko.BlogModule.RavenDB
 		/// <param name="documentStore">The document store.</param>
 		public void RegisterIndexes(IDocumentStore documentStore)
 		{
+            new CelebritySearchIndex().Execute(documentStore);
             new CelebrityViewIndex().Execute(documentStore);
             new CelebritySortIndex().Execute(documentStore);
             new DeviceSortIndex().Execute(documentStore);

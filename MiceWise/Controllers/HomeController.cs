@@ -25,8 +25,19 @@ namespace MiceWise.web.Controllers
         public ActionResult Index(PagedModel<CelebrityView> pageModel)
         {
             pageModel.PageItems = 11;
+            pageModel.PrevAsItem = true;
             pageModel.LoadData(RepositoryFactory.Command<ICelebrityCommands>().GetActive().OrderByDescending(item => item.Priority));
             return ViewWithAjax(pageModel);
+        }
+
+        /// <summary>
+        /// URL: Home/Search
+        /// </summary>
+        /// <param name="query">The query.</param>
+        /// <returns></returns>
+        public ActionResult Search(string query)
+        {
+            return ViewWithAjax(RepositoryFactory.Command<ICelebrityCommands>().Search(query));
         }
 
         /// <summary>

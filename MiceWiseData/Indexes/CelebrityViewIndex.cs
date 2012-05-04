@@ -1,5 +1,6 @@
 using System.Linq;
 using MiceWiseData.Roots;
+using Raven.Abstractions.Indexing;
 using Raven.Client.Indexes;
 
 namespace MiceWiseData.Indexes
@@ -31,6 +32,34 @@ namespace MiceWiseData.Indexes
                                               TabletBrand = tablet != null ? tablet.Brand : null,
                                               TabletUrl = tablet != null ? tablet.Url : null,
                                           };
+        }
+    }
+
+    public class CelebritySearchIndex : AbstractMultiMapIndexCreationTask<CelebritySearchIndex.Result>
+    {
+        public class Result
+        {
+            public string Query { get; set; }
+        }
+
+        public CelebritySearchIndex()
+        {
+            AddMap<Celebrity>( celebrities => from item in celebrities
+                                 where item.Active
+                                 select new { Query = new []
+                                                          {
+                                                              item.Name, item.Place, item.Portfolio
+                                                          } });
+            AddMap<Device>(devices => from item in devices
+                                             select new
+                                             {
+                                                 Query = new[]
+                                                          {
+                                                              item.Name, item.Brand
+                                                          }
+                                             });
+
+            Indexes.Add(item => item.Query, FieldIndexing.Analyzed);
         }
     }
 }

@@ -78,9 +78,6 @@
     <Reference Include="Raven.Client.Lightweight">
       <HintPath>..\packages\RavenDB-Embedded.1.0.910-Unstable\lib\net40\Raven.Client.Lightweight.dll</HintPath>
     </Reference>
-    <Reference Include="Raven.Client.Lightweight.FSharp">
-      <HintPath>..\packages\RavenDB-Embedded.1.0.910-Unstable\lib\net40\Raven.Client.Lightweight.FSharp.dll</HintPath>
-    </Reference>
     <Reference Include="Raven.Client.MvcIntegration">
       <HintPath>..\packages\RavenDB-Embedded.1.0.910-Unstable\lib\net40\Raven.Client.MvcIntegration.dll</HintPath>
     </Reference>

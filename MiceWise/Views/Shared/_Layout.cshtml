@@ -87,11 +87,17 @@
         <script>
             $(function() {
                 $(window).resize(resizePage);
-                $("body.js #designers article img").after("<div class='img_hover'>");
-                $("body.js #designers article .img_hover, body.js #designers article img").click(function () {
+                $("body #designers article img").after("<div class='img_hover'>");
+                $("body #designers article header").click(function () {
                     $("body.js #designers article").removeClass("js_click");
-                    $(this).parent().addClass("js_click");
                 });
+                $("body #designers article .img_hover, body #designers article img").click(function () {
+                    if ($("body").hasClass("js")) {
+                        $("body.js #designers article").removeClass("js_click");
+                        $(this).parent().addClass("js_click");
+                    }
+                });
+                
                 if (!(('ontouchstart' in window) || window.DocumentTouch && document instanceof DocumentTouch)) {
                     $("#commands").addClass("js");
                 }

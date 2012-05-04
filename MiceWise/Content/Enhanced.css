@@ -13,16 +13,10 @@ body {
 #designers {
   width: 840px;
   overflow-x: hidden; }
-  #designers .next_page {
+  #designers .next_page, #designers .prev_page {
     height: 200px;
     line-height: 200px; }
-  #designers .prev_page {
-    width: 820px;
-    height: 50px;
-    line-height: 50px;
-    margin-left: 10px;
-    margin-right: 10px; }
-  #designers article, #designers .next_page {
+  #designers article, #designers .next_page, #designers .prev_page {
     float: left;
     margin-right: 10px;
     margin-left: 10px; }
@@ -33,23 +27,27 @@ body.js {
     width: 880px; }
     body.js #designers .prev_page {
       width: 860px; }
-    body.js #designers .next_page {
+    body.js #designers .next_page, body.js #designers .prev_page {
       width: 200px;
-      overflow: hidden;
-      background: white url("/Content/images/next_page.png") no-repeat center center; }
-      body.js #designers .next_page span {
+      overflow: hidden; }
+      body.js #designers .next_page span, body.js #designers .prev_page span {
         display: block;
         width: 200px;
         height: 200px;
         margin-left: 200px; }
-      body.js #designers .next_page:hover span {
+      body.js #designers .next_page:hover span, body.js #designers .prev_page:hover span {
         background-color: black;
         color: #3f3f3f;
         margin-left: 0px; }
+    body.js #designers .next_page {
+      background: white url("/Content/images/next_page.png") no-repeat center center; }
+    body.js #designers .prev_page {
+      background: white url("/Content/images/prev_page.png") no-repeat center center; }
     body.js #designers article {
       width: 200px;
       overflow: hidden; }
       body.js #designers article .img_hover {
+        display: block;
         position: absolute;
         border-bottom-width: 18px;
         border-style: solid;

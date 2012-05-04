@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using MiceWiseData.Roots;
 using MiceWiseData.ViewModel;
@@ -14,6 +15,13 @@ namespace MiceWiseData.Commands
         /// </summary>
         /// <returns>All celebrities.</returns>
         IQueryResult<Celebrity> GetAll();
+
+        /// <summary>
+        /// Searchs the specified search query.
+        /// </summary>
+        /// <param name="searchQuery">The search query.</param>
+        /// <returns>Search results.</returns>
+        CelebrityView[] Search(string searchQuery);
 
         /// <summary>
         /// Gets the active.

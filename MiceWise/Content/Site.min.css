@@ -341,7 +341,7 @@ body{min-width:530px}
 #designers article{background-color:#ffff73;margin-bottom:20px;height:200px;width:400px;position:relative}
 #designers article *{color:black;white-space:nowrap;overflow:hidden}
 #designers article img{position:absolute;left:0;top:0}
-#designers article .img_hover{border-color:#ffff73}
+#designers article .img_hover{border-color:#ffff73;display:none}
 #designers article .info{position:absolute;overflow:hidden;left:200px;top:0;width:200px;height:200px}
 #designers article .info header{left:200px;top:0;height:78px;padding-top:20px}
 #designers article .info header h1{margin:0 20px 0 20px;height:19px;font-family:'Droid Sans',sans-serif;font-size:14px;font-weight:700;line-height:19px}
@@ -402,6 +402,7 @@ body{min-width:530px}
 #commands .add span{display:inline-block;background:transparent url("/Content/images/add.png") no-repeat left center;width:198px;text-align:left;line-height:50px}
 #commands .add span strong{background-image:none;margin-left:50px;line-height:50px}
 #commands .search{position:absolute;top:0;right:0;width:50%;height:50px;margin-right:-2px;background-color:#fbf7f6;padding:0;margin:0}
+#commands .search form{padding:0;margin:0;line-height:50px;height:50px}
 #commands .search:hover,#commands .search *:hover{background-color:#0dd1cf}
 #commands .search .box{border:0;margin:0;padding:0;background-color:transparent;box-shadow:none;margin-left:10px;width:155px;height:30px;line-height:30px}
 #commands .search .submit{border:0;margin:0;padding:0;background:transparent url("/Content/images/search.png") no-repeat center center;box-shadow:none;width:50px}
