@@ -244,6 +244,7 @@
     <Content Include="Content\images\next_page.png" />
     <Content Include="Content\images\note-main.gif" />
     <Content Include="Content\images\note.png" />
+    <Content Include="Content\images\prev_page.png" />
     <Content Include="Content\images\publish.gif" />
     <Content Include="Content\images\reply.gif" />
     <Content Include="Content\images\rss.png" />
